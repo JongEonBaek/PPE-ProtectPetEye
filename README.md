@@ -105,7 +105,11 @@ http://127.0.0.1:7860
 2. **ResNet50 (Residual Network)**  
 3. **Random Forest**  
 4. **Stacking Ensemble**  
-5. **Boosting Algorithm (XGBoost)**  
+5. **Boosting Algorithm (XGBoost)**
+
+###  **2.5 웹 애플리케이션 구축**
+- Flask 기반의 간단하면서도 직관적인 웹 인터페이스를 구현.
+- 업로드된 이미지는 실시간으로 미리보기되며, “분류 실행” 버튼 클릭 한 번으로 상위 4개 질환 예측 결과와 확률을 확인.
 ---
 
 ## **3. 모델 성능 비교 및 결과**
