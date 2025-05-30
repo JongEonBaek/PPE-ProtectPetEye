@@ -86,22 +86,22 @@ https://www.dropbox.com/scl/fi/phnmfxios5z3lqxhuvudm/feature_embedding-Model_sav
 ### **3.1 모델 후보군**  
 다섯 가지 모델을 실험 및 비교하였습니다:  
 1. **Vision Transformer (ViT)**  
-2. **ResNet (Residual Network)**  
+2. **ResNet50 (Residual Network)**  
 3. **Random Forest**  
 4. **Stacking Ensemble**  
 5. **Boosting Algorithm (XGBoost)**  
 
 ### **3.2 최적 모델 선정**  
-- 성능 비교 결과 **ResNet**이 가장 높은 정확도를 기록하여 최적의 모델로 선정되었습니다.  
+- 성능 비교 결과 **ResNet50**이 가장 높은 정확도를 기록하여 최적의 모델로 선정되었습니다.  
 
 ### **3.3 주요 성능 결과**  
-| **모델**            | **테스트 정확도** |  
-|---------------------|-----------------|  
-| Vision Transformer  | 51.8%            |  
-| **ResNet** (최종 선정) | **53.4%**        |  
-| Random Forest       | 35.2%            |  
-| Stacking Ensemble   | 47.0%            |  
-| XGBoost             | 40.2%            |  
+| **모델**            | **테스트 정확도** | **학습 시간 (30 epochs)** | 
+|---------------------|-----------------|-----------------| 
+| Vision Transformer  | 51.8%            |  7h 24m        |
+| **ResNet50** (최종 선정) | **53.4%**        |  9h 17m   |
+| Random Forest       | 35.2%            |  30m           |
+| Stacking Ensemble   | 47.0%            |  15h           |
+| XGBoost             | 40.2%            |  21m           |
 
 ---
 
