@@ -18,9 +18,8 @@ https://www.dropbox.com/scl/fi/phnmfxios5z3lqxhuvudm/feature_embedding-Model_sav
 ---
 
 ## **사용 방법**
-```bash
+
 # 1. 리포지토리 클론
-git clone https://github.com/YourUsername/PetEyeAI.git
 cd PetEyeAI
 
 # 2. 의존성 패키지 설치
