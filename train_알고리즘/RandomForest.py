@@ -6,8 +6,8 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 import joblib
 import matplotlib.pyplot as plt
 
-# 1. 데이터 로드 (로컬 경로로 수정)
-data_dir = "./data/feature_embedding/" # data/X_train.npy 등 파일 위치
+# 1. 데이터 로드
+data_dir = "./data/feature_embedding/"
 x_train = np.load(os.path.join(data_dir, 'X_train.npy'))
 x_test  = np.load(os.path.join(data_dir, 'X_test.npy'))
 y_train = np.load(os.path.join(data_dir, 'y_train.npy'))
