@@ -8,15 +8,10 @@
 - Flask 웹 애플리케이션으로 이미지 업로드 → 분류 → 결과 확인 통합 제공
 ---
 
-# **데이터셋 및 체크포인트**
-1. Dataset
-- train dataset
-- test dataset
-- feature_embedding for machine learning
-2. Model check point
-
-1, 2는 해당 링크에서 다운로드 받을 수 있습니다.
-[https://www.dropbox.com/scl/fi/phnmfxios5z3lqxhuvudm/feature_embedding-Model_save_point-test-train.zip?rlkey=25xz9gsg7l6p6klalb3l0klf1&st=ff9u9o6b&dl=0](https://www.dropbox.com/scl/fi/86v6he5jc3wi1bkvouq0r/data-checkpoint.zip?rlkey=w3a9rexq9v4d02b1zxv98b2pr&st=12l3t0mv&dl=0)
+# **데이터셋 및 체크포인트 다운로드**
+```bash
+https://www.dropbox.com/scl/fi/86v6he5jc3wi1bkvouq0r/data.zip?rlkey=w3a9rexq9v4d02b1zxv98b2pr&st=2lku0bqf&dl=0
+```
 ---
 
 ## **사용 방법**
@@ -53,7 +48,7 @@ http://127.0.0.1:7860
 ![a](https://github.com/user-attachments/assets/30b31640-b2f1-47c6-8b50-31b5be34ee6a)
 ![b](https://github.com/user-attachments/assets/cb855ceb-011e-44ef-91b9-c0fda9d5aeae)
 
-
+---
 ## **1. 문제 정의**
 
 ### **1.1 문제의 맥락 및 진술**  
