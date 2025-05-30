@@ -5,8 +5,7 @@ from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score, classification_report
 import json
 
-# 1. 데이터 경로 설정 (로컬 환경)
-# 데이터(.npy) 파일을 `data/` 폴더에 위치시켜 주세요.
+# 1. 데이터 경로 설정
 base_dir = "./data/feature_embedding/"
 X_train_path = os.path.join(base_dir, 'X_train.npy')
 y_train_path = os.path.join(base_dir, 'y_train.npy')
