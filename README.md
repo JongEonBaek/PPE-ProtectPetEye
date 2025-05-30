@@ -1,6 +1,12 @@
 # **반려동물 안구 질환 분류 프로젝트**
 본 프로젝트는 10가지 반려견 안구질환을 정확히 분류하는 딥러닝모델을 학습하고, Flask 기반의 웹 애플리케이션을 통해 누구나 손쉽게 진단 결과를 확인할 수 있도록 접근성과 활용도를 대폭 향상시킨 연구입니다.
 
+# **프로젝트 개요**
+- 반려견 안구 이미지에서 10개 질환을 분류하는 모델 학습
+- ResNet50, ViT 같은 딥러닝 모델과 RandomForest, XGBoost, Stacking 같은 머신러닝 앙상블 모델 성능 비교 후 최적의 모델 선택
+- Flask 웹 애플리케이션으로 이미지 업로드 → 분류 → 결과 확인 통합 제공
+---
+
 1. dataset
 - train dataset
 - test dataset
@@ -58,14 +64,34 @@ https://www.dropbox.com/scl/fi/phnmfxios5z3lqxhuvudm/feature_embedding-Model_sav
 
 ## **2. 프로젝트 진행 과정**
 
-### **2.1 데이터 전처리 및 증강**  
-- **이미지 크기 조정**: ResNet 및 ViT 입력 크기(224x224)로 변환  
-- **데이터 증강**:  
-   - **Random Horizontal Flip**  
-   - **Random Rotation**  
-   - **Color Jitter** (밝기, 대비, 채도 조절)  
+### **2.1 데이터 설명 및 전처리**  
+- AI HUB에서 제공하는 실제 반려동물 안구질환 데이터셋 사용
+- 다양한 해상도·크기의 이미지로 구성
+
+### **2.2 데이터 구성**  
+- 총 55,000개 이미지, 11개 클래스
+- 각 클래스별 학습 4,000장, 테스트 1,000장 비율로 구성
+- 클래스별 순차 편향 방지를 위해 랜덤 샘플링(클래스당 5,000장)
+
+### **2.3 데이터셋 전처리**  
+1. 라벨 정제: 진단 부위, 좌표 등 멀티라벨 중 안구 질환명 라벨만 사용
+2. 이미지 크기 조정: ResNet·ViT 표준 입력 크기인 224×224로 통일
+3. 데이터 증강
+   - RandomHorizontalFlip (50% 좌우 반전)
+   - RandomRotation (±20도 회전)
+   - ColorJitter (밝기·대비·채도 변화)
+4. 텐서 변환: PyTorch 모델 입력용 Tensor로 변환
+5. 정규화: ImageNet 사전학습 표준(mean/std) 값으로 정규화
+6. 파이프라인 구축: transforms.Compose로 일괄 전처리 적용
 
 ### **2.2 모델 후보군**  
+
+
+---
+
+## **3. 모델 성능 비교 및 결과**
+
+### **3.1 모델 후보군**  
 다섯 가지 모델을 실험 및 비교하였습니다:  
 1. **Vision Transformer (ViT)**  
 2. **ResNet (Residual Network)**  
@@ -73,14 +99,10 @@ https://www.dropbox.com/scl/fi/phnmfxios5z3lqxhuvudm/feature_embedding-Model_sav
 4. **Stacking Ensemble**  
 5. **Boosting Algorithm (XGBoost)**  
 
----
-
-## **3. 모델 성능 비교 및 결과**
-
-### **3.1 최적 모델 선정**  
+### **3.2 최적 모델 선정**  
 - 성능 비교 결과 **ResNet**이 가장 높은 정확도를 기록하여 최적의 모델로 선정되었습니다.  
 
-### **3.2 주요 성능 결과**  
+### **3.3 주요 성능 결과**  
 | **모델**            | **테스트 정확도** |  
 |---------------------|-----------------|  
 | Vision Transformer  | 51.8%            |  
