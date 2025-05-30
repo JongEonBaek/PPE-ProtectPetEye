@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>반려동물 안구질환 분류기</title>
+  <style>
+    /* Google Fonts: Noto Sans KR for formal look */
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f2f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #fff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    .container {
+      max-width: 760px; /* 가로 폭 조금 확대 */
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+    /* 첫 번째 카드(분류기 설명) 텍스트 크기 확대 */
+    .container > .card:first-child p,
+    .container > .card:first-child .disease-list li {
+      font-size: 1.1rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .card h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    .card p,
+    .card ul {
+      font-family: 'Noto Sans KR', sans-serif;
+      margin: 0 0 15px;
+      line-height: 1.5;
+    }
+    .disease-list {
+      padding-left: 20px;
+    }
+    .disease-list li {
+      margin-bottom: 8px;
+    }
+    .upload-instructions {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .upload-btn {
+      background-color: #28a745; /* 버튼을 초록색으로 */
+      color: #fff;
+      display: inline-block;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      font-size: 1rem;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    .upload-btn input[type=file] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+    .submit-btn {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    .upload-btn:hover,
+    .submit-btn:hover {
+      opacity: 0.9;
+    }
+    .result-img {
+      max-width: 100%;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+      margin-bottom: 15px;
+    }
+    .top-result {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #d9534f;
+      text-align: center;
+      margin: 15px 0;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    .result-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 1.1rem;
+    }
+    .result-table th,
+    .result-table td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+    .result-table th {
+      background-color: #f7f2a7;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🐾 반려동물 안구질환 분류기</h1>
+  </header>
+  <div class="container">
+    <!-- 분류기 설명 카드 -->
+    <div class="card">
+      <h2>분류기 설명</h2>
+      <p>이 분류기는 다음 10가지 안구 질환을 검출합니다:</p>
+      <ul class="disease-list">
+        <li><strong>결막염:</strong> 눈 결막에 염증이 생겨 충혈과 분비물을 유발합니다.</li>
+        <li><strong>궤양성각막질환:</strong> 각막에 궤양이 발생하여 통증과 시력 저하를 일으킵니다.</li>
+        <li><strong>백내장:</strong> 수정체가 혼탁해져 시야가 흐릿해지는 질환입니다.</li>
+        <li><strong>비궤양성각막질환:</strong> 궤양 없이 각막에 염증이나 부종이 생깁니다.</li>
+        <li><strong>색소침착성각막염:</strong> 각막에 색소가 침착되어 시야에 검은 점이 나타납니다.</li>
+        <li><strong>안검내반증:</strong> 속눈썹이 눈 안쪽으로 말려 자극을 주는 상태입니다.</li>
+        <li><strong>안검염:</strong> 눈꺼풀에 염증이 생겨 가려움과 부종을 유발합니다.</li>
+        <li><strong>안검종양:</strong> 눈꺼풀에 종양이 생겨 돌출되거나 기능 이상을 초래합니다.</li>
+        <li><strong>유루증:</strong> 누관 장애로 눈물이 과도하게 흐르는 현상입니다.</li>
+        <li><strong>핵경화:</strong> 수정체 핵이 경화되어 색이 진해지고 시력이 변합니다.</li>
+      </ul>
+    </div>
+    <!-- 이미지 업로드 카드 및 결과 -->
+    <div class="card">
+      <h2>이미지 업로드</h2>
+      {% if not results %}
+      <p class="upload-instructions">강아지 안구 사진을 선택한 뒤 실행 버튼을 눌러주세요.</p>
+      <form action="/predict" method="post" enctype="multipart/form-data">
+        <div class="button-group">
+          <label class="upload-btn">이미지 선택
+            <input type="file" name="file" id="file-input" accept="image/*" required />
+          </label>
+          <button type="submit" class="submit-btn">분류 실행</button>
+        </div>
+      </form>
+      <div id="preview-container" style="margin-top:15px; text-align: center;">
+        <img id="preview" class="result-img" style="display:none;" alt="Preview" />
+      </div>
+      {% else %}
+      <button onclick="window.location.href='/'" class="upload-btn" style="width:100%;">다시 시도하기</button>
+      {% endif %}
+
+      {% if results %}
+      <div class="card" style="margin-top:20px;">
+        <h2>예측 결과</h2>
+        <p class="top-result">당신의 강아지는 {{ "{:.2f}".format(results[0][1]*100) }}% 확률로 {{ results[0][0] }}이 예상됩니다!</p>
+        <div style="text-align: center;">
+          <img src="data:image/png;base64,{{ img_data }}" alt="Uploaded Image" class="result-img" />
+        </div>
+        <table class="result-table">
+          <thead><tr><th>질환명</th><th>확률</th></tr></thead>
+          <tbody>
+            {% for name, prob in results %}
+            <tr><td>{{ name }}</td><td>{{ "{:.2f}%".format(prob * 100) }}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  <script>
+    document.getElementById('file-input')?.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          const preview = document.getElementById('preview');
+          preview.src = evt.target.result;
+          preview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+</body>
+</html>
