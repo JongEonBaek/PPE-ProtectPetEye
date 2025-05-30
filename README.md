@@ -1,4 +1,6 @@
 # **반려동물 안구 질환 분류 프로젝트**
+본 프로젝트는 10가지 반려견 안구질환을 정확히 분류하는 딥러닝모델을 학습하고, Flask 기반의 웹 애플리케이션을 통해 누구나 손쉽게 진단 결과를 확인할 수 있도록 접근성과 활용도를 대폭 향상시킨 연구입니다.
+
 1. dataset
 - train dataset
 - test dataset
@@ -7,6 +9,24 @@
 은 해당 링크에서 다운로드 받을 수 있습니다.
 https://www.dropbox.com/scl/fi/phnmfxios5z3lqxhuvudm/feature_embedding-Model_save_point-test-train.zip?rlkey=25xz9gsg7l6p6klalb3l0klf1&st=ff9u9o6b&dl=0
 ---
+
+
+## **사용 방법**
+1. Repository Clone
+- git clone https://github.com/YourUsername/PetEyeAI.git
+- cd PetEyeAI
+2. 의존성 패키지 설치
+- pip install -r requirements.txt
+3. 모델 체크포인트 다운로드
+4. 웹 애플리케이션 실행
+- python app.py
+5. 브라우저에서 접속
+- http://127.0.0.1:7860
+6. 이미지 업로드 및 결과 확인
+- “이미지 선택” 버튼을 눌러 강아지 안구 사진을 업로드합니다.
+- “분류 실행”을 클릭하면 상위 4개 질환 예측 결과가 표시됩니다.
+---
+
 
 ## **1. 문제 정의**
 
