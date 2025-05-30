@@ -39,6 +39,10 @@ https://www.dropbox.com/scl/fi/phnmfxios5z3lqxhuvudm/feature_embedding-Model_sav
 - “분류 실행”을 클릭하면 상위 4개 질환 예측 결과가 표시됩니다.
 ---
 
+## **사용 예시**
+![a](https://github.com/user-attachments/assets/30b31640-b2f1-47c6-8b50-31b5be34ee6a)
+![b](https://github.com/user-attachments/assets/cb855ceb-011e-44ef-91b9-c0fda9d5aeae)
+
 
 ## **1. 문제 정의**
 
@@ -119,6 +123,8 @@ https://www.dropbox.com/scl/fi/phnmfxios5z3lqxhuvudm/feature_embedding-Model_sav
 최종적으로 웹 애플리케이션을 구현하여 사용자가 이미지를 업로드하면 **질병 예측 결과와 경고**를 제공하는 시스템을 설계했습니다. 이를 통해 반려동물 주인이 질병을 조기에 인지하고 적절히 대응할 수 있도록 지원하고자 했습니다.
 
 ---
+
+
 
 ## **5. 한계점 및 개선 방향**
 
