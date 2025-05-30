@@ -2,7 +2,7 @@
 본 프로젝트는 10가지 반려견 안구질환을 정확히 분류하는 딥러닝모델을 학습하고, Flask 기반의 웹 애플리케이션을 통해 누구나 손쉽게 진단 결과를 확인할 수 있도록 접근성과 활용도를 대폭 향상시킨 연구입니다.
 
 # **프로젝트 개요**
-- 반려견 안구 이미지에서 10개 질환을 분류하는 모델 학습
+- 반려견 안구 이미지에서 10개 질환을 분류하는 모델 학습(fine-tuning)
 - ResNet50, ViT 같은 딥러닝 모델과 RandomForest, XGBoost, Stacking 같은 머신러닝 앙상블 모델 성능 비교 후 최적의 모델 선택
 - Flask 웹 애플리케이션으로 이미지 업로드 → 분류 → 결과 확인 통합 제공
 ---
@@ -48,7 +48,7 @@ https://www.dropbox.com/scl/fi/phnmfxios5z3lqxhuvudm/feature_embedding-Model_sav
 
 **과정**  
 1. 반려동물 안구 질환 데이터셋 수집 및 전처리  
-2. **5개 모델**의 성능 비교: ViT, ResNet, Random Forest, Stacking, Boosting  
+2. **5개 모델**의 학습(finetuing) 후 성능 비교: ViT, ResNet, Random Forest, Stacking, Boosting  
 3. 최적 모델 선정 및 **성능 최적화** 기법 적용  
 4. 최종 모델 배포 및 **웹 애플리케이션** 구현  
 
@@ -92,7 +92,8 @@ https://www.dropbox.com/scl/fi/phnmfxios5z3lqxhuvudm/feature_embedding-Model_sav
 5. **Boosting Algorithm (XGBoost)**  
 
 ### **3.2 최적 모델 선정**  
-- 성능 비교 결과 **ResNet50**이 가장 높은 정확도를 기록하여 최적의 모델로 선정되었습니다.  
+- 성능 비교 결과 **ResNet50**이 가장 높은 정확도(52.1%)를 기록하여 최적의 모델로 선정되었습니다.
+- 선정된 ResNet모델에 추가적인 데이터 전처리를 통해 최종적인 성능(53.4%)의 성능을 얻었습니다.
 
 ### **3.3 주요 성능 결과**  
 | **모델**            | **테스트 정확도** | **학습 시간 (30 epochs)** | 
@@ -106,7 +107,7 @@ https://www.dropbox.com/scl/fi/phnmfxios5z3lqxhuvudm/feature_embedding-Model_sav
 ---
 
 ## **4. 결론**  
-본 프로젝트는 반려동물의 안구 이미지를 분석하여 **질환의 유무와 종류를 분류**하는 모델을 개발했습니다. 다양한 모델을 실험한 결과 **ResNet**이 가장 우수한 성능을 보였으며, 성능 최적화를 통해 **53.4%의 테스트 정확도**를 달성했습니다.  
+본 프로젝트는 반려동물의 안구 이미지를 분석하여 **질환의 유무와 종류를 분류**하는 모델을 개발했습니다. 다양한 모델을 실험한 결과 **ResNet50**이 가장 우수한 성능을 보였으며, 성능 최적화를 통해 **53.4%의 테스트 정확도**를 달성했습니다.  
 
 최종적으로 웹 애플리케이션을 구현하여 사용자가 이미지를 업로드하면 **질병 예측 결과와 경고**를 제공하는 시스템을 설계했습니다. 이를 통해 반려동물 주인이 질병을 조기에 인지하고 적절히 대응할 수 있도록 지원하고자 했습니다.
 
@@ -125,5 +126,4 @@ https://www.dropbox.com/scl/fi/phnmfxios5z3lqxhuvudm/feature_embedding-Model_sav
 1. 클래스 불균형 해소 및 **데이터셋 확장**  
 2. F1 Score와 같은 지표를 도입해 모델 성능 평가 강화  
 3. Epoch 수를 늘려 모델 학습을 충분히 진행  
-4. **Self-Supervised Learning**과 같은 최신 기법 도입  
 
