@@ -1,14 +1,14 @@
-# **반려동물 안구 질환 분류 프로젝트**
+## **반려동물 안구 질환 분류 프로젝트**
 - 본 프로젝트는 11가지 반려견 안구질환을 정확히 분류하는 딥러닝모델을 학습하고,
 - Flask 기반의 웹 애플리케이션을 통해 누구나 손쉽게 진단 결과를 확인할 수 있도록 접근성과 활용도를 대폭 향상시킨 연구입니다.
 
-# **프로젝트 개요**
+## **프로젝트 개요**
 - 반려견 안구 이미지에서 11개 질환(10개질환 + 정상 1개)을 분류하는 모델 학습(fine-tuning)
 - ResNet50, ViT 같은 딥러닝 모델과 RandomForest, XGBoost, Stacking 같은 머신러닝 앙상블 모델 성능 비교 후 최적의 모델 선택
 - Flask 웹 애플리케이션으로 이미지 업로드 → 분류 → 결과 확인 통합 제공
 ---
 
-# **데이터셋 및 체크포인트 다운로드**
+## **데이터셋 및 체크포인트 다운로드**
 ```bash
 https://www.dropbox.com/scl/fi/86v6he5jc3wi1bkvouq0r/data.zip?rlkey=w3a9rexq9v4d02b1zxv98b2pr&st=2lku0bqf&dl=0
 ```
@@ -99,15 +99,20 @@ http://127.0.0.1:7860
 5. 정규화: ImageNet 사전학습 표준(mean/std) 값으로 정규화
 6. 파이프라인 구축: transforms.Compose로 일괄 전처리 적용
 
-## **3. 모델 성능 비교 및 결과**
-
-### **3.1 모델 후보군**  
+### **2.4 모델 학습**
 다섯 가지 모델을 실험 및 비교하였습니다:  
 1. **Vision Transformer (ViT)**  
 2. **ResNet50 (Residual Network)**  
 3. **Random Forest**  
 4. **Stacking Ensemble**  
 5. **Boosting Algorithm (XGBoost)**  
+
+## **3. 모델 성능 비교 및 결과**
+
+### **3.1 Metrics**  
+- Accruacy
+- Train Time
+
 
 ### **3.2 최적 모델 선정**  
 - 성능 비교 결과 **ResNet50**이 가장 높은 정확도(52.1%)를 기록하여 최적의 모델로 선정되었습니다.
