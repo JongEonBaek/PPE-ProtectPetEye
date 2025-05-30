@@ -106,6 +106,7 @@ http://127.0.0.1:7860
 3. **Random Forest**  
 4. **Stacking Ensemble**  
 5. **Boosting Algorithm (XGBoost)**  
+---
 
 ## **3. 모델 성능 비교 및 결과**
 
