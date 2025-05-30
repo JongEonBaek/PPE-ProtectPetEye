@@ -21,25 +21,31 @@ https://www.dropbox.com/scl/fi/phnmfxios5z3lqxhuvudm/feature_embedding-Model_sav
 ## **사용 방법**
 
 1. 리포지토리 클론
-'''bash
+```bash
 cd PetEyeAI
-'''
+```
 
 2. 의존성 패키지 설치
-- pip install -r requirements.txt
-
+```bash
+pip install -r requirements.txt
+```
 3. 모델 체크포인트 다운로드
-- 제공된 링크에서 best_finetuned_resnet.pth 파일을 프로젝트 루트에 저장
-
+```bash
+제공된 링크에서 best_finetuned_resnet.pth 파일을 프로젝트 루트에 저장
+```
 4. 웹 애플리케이션 실행
-- python app.py
-
-5. 브라우저에서 접속
-- http://127.0.0.1:7860
-
+```bash
+python app.py
+```
+6. 브라우저에서 접속
+```bash
+http://127.0.0.1:7860
+```
 6. 이미지 업로드 및 결과 확인
+```bash
 - “이미지 선택” 버튼을 눌러 강아지 안구 사진을 업로드합니다.
 - “분류 실행”을 클릭하면 상위 4개 질환 예측 결과가 표시됩니다.
+```
 ---
 
 ## **사용 예시**
