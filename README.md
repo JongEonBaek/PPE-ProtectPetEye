@@ -1,8 +1,9 @@
 # **반려동물 안구 질환 분류 프로젝트**
-1. feature_embedding
+1. dataset
+- train dataset
+- test dataset
+- feature_embedding for machine learning
 2. Model_save_point
-3. test dataset
-4. train dataset
 은 해당 링크에서 다운로드 받을 수 있습니다.
 https://www.dropbox.com/scl/fi/phnmfxios5z3lqxhuvudm/feature_embedding-Model_save_point-test-train.zip?rlkey=25xz9gsg7l6p6klalb3l0klf1&st=ff9u9o6b&dl=0
 ---
