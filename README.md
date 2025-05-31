@@ -18,7 +18,7 @@ https://www.dropbox.com/scl/fi/86v6he5jc3wi1bkvouq0r/data.zip?rlkey=w3a9rexq9v4d
 
 1. 리포지토리 클론
 ```bash
-cd PetEyeAI
+cd PPE-ProtectPetEyes
 ```
 
 2. 의존성 패키지 설치
